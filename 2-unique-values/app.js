@@ -25,14 +25,24 @@ const menu = [
     category: 'dinner',
   },
 ];
-// const categories = ['all', ...new Set(menu.map((item) => item.category))];
 // map - get all instances
-// new Set - narrow down
-// ['all',...] - turn it back to array
+const allMenuCategories = menu.map((item) => item.category);
 
-const categories = ['all', ...new Set(menu.map((item) => item.category))];
+// new Set - get only unique values
+var allUniqueCategoriesSet = new Set(allMenuCategories);
+
+// set to array
+const allUniqueCategories = [...allUniqueCategoriesSet];
+
+//adding another item to array
+const menuCategories = ['brunch', ...allUniqueCategories];
+
+// one line statement of all above steps
+// const categories = ['all', ...new Set(menu.map((item) => item.category))];
+
+// finally display result
 const result = document.querySelector('.result');
-result.innerHTML = categories
+result.innerHTML = menuCategories
   .map((category) => {
     return `<button>${category}</button>`;
   })

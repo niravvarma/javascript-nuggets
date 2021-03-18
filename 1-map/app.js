@@ -22,24 +22,25 @@ const people = [
   },
 ];
 // Quokka.js - Extension
-// returns a new array
-// does not change the size of original array (unlike filter)
-// uses values from original array when making new one
+// map
+// - returns a new array
+// - does not change the size of original array (unlike filter)
+// - uses values from original array when making new one
 
-const getAges = (person) => person.age * 2;
+const getAllAges = people.map((person) => person.age);
+console.log(getAllAges);
 
-const ages = people.map(getAges);
-console.log(ages);
-
-const newPeople = people.map((item) => {
+const newPeopleArray = people.map((person) => {
   return {
-    firsName: item.name.toUpperCase(),
-    oldAge: item.age + 20,
+    firstName: person.name,
+    age: person.age,
   };
 });
-console.log(newPeople);
+console.log(newPeopleArray);
 
-const names = people.map((person) => `<h2>${person.name}</h2>`);
+// map each person's first name and set in html tag
+const names = newPeopleArray.map((person) => `<h2>${person.firstName}</h2>`);
 const result = document.querySelector('#result');
 
+// join removes comma that was generated using map function
 result.innerHTML = names.join('');

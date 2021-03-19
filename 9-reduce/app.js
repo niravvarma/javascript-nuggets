@@ -21,3 +21,14 @@ const dailyTotal = staff.reduce((total, person) => {
 }, 0);
 
 console.log(dailyTotal);
+
+/**
+ * reduce calls a callback function with initial value
+ * and then iterates over the array & keeps on operating on the
+ * accumulator
+ *
+ * arrayName.reduce((accumulator, object) => {
+ * some func / operation
+ * return accumulator; -- always return - very imp
+ * }, initial);
+ **/
